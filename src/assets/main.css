@@ -1,9 +1,4 @@
-:root,
-:host {
-  --van-blue: #037d41 !important;
-  --van-gray-8: #1a1a1a !important;
-}
-
+@import './vant-reset.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

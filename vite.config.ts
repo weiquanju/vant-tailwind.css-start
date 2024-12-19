@@ -15,6 +15,8 @@ import IconsResolver from 'unplugin-icons/resolver'
 import tailwindcss from "tailwindcss";
 import autoPrefixer from "autoprefixer";
 
+const svgColor = (svg: string) => svg.replace(/stroke="#[^"]{6}"/i, 'stroke="currentColor"')
+
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
@@ -27,7 +29,7 @@ export default defineConfig({
       eslintrc: {
         enabled: true,
         filepath: './.eslintrc-auto-import.json',
-        globalsPropValue: true,
+        // globalsPropValue: true,
       },
       resolvers: [VantResolver()],
       dirs: ['src/utils', 'src/stores']
@@ -37,7 +39,7 @@ export default defineConfig({
         VantResolver(),
         IconsResolver({
           prefix: 'icon',
-          customCollections: ['custom'],
+          customCollections: ['app','order','service'],
         }),
       ],
       dts: 'src/components.d.ts',
@@ -47,7 +49,9 @@ export default defineConfig({
     Icons({
       compiler: 'vue3',
       customCollections: {
-        "custom": FileSystemIconLoader('src/assets/icons'),
+        "app": FileSystemIconLoader('src/assets/icons/app', svgColor),
+        "order": FileSystemIconLoader('src/assets/icons/order', svgColor),
+        "service": FileSystemIconLoader('src/assets/icons/service', svgColor),
       }
     }),
   ],

@@ -1,0 +1,7 @@
+:root,
+:host {
+  --van-blue: #037d41 !important;
+  --van-gray-8: #1a1a1a !important;
+  --van-cell-font-size: 12px!important;
+  --van-cell-value-color: var(--van-gray-8)!important;
+}
